@@ -8,5 +8,6 @@ public class SceneLoader : MonoBehaviour
     private void Start()
     {
         SceneManager.LoadScene(sceneToLoad);
+        Debug.Log("Loading scene" + sceneToLoad);
     }
 }
