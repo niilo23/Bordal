@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
 
     Vector3 velocity;
-    bool isGrounded;
+    public bool isGrounded;
 
     [Header("Stamina Variables")]
     public float maxStamina = 100f;
