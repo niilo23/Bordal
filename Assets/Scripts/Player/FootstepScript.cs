@@ -8,6 +8,7 @@ public class FootstepScript : MonoBehaviour
     private bool isOnGround;
     private LayerMask ground;
 
+    // StepRate changes frequency of step sounds.
     public float stepRate = 0.5f;
     public float stepCooldown;
     public AudioClip footstep;
@@ -23,6 +24,8 @@ public class FootstepScript : MonoBehaviour
     void Update()
     {
         stepCooldown -= Time.deltaTime;
+
+        // Takes isGrounded bool from movement script for checking if player is on ground.
         isOnGround = GetComponent<PlayerMovement>().isGrounded;
 
         if (isOnGround && Input.GetAxis("Horizontal") != 0f && stepCooldown <= 0f)
@@ -36,14 +39,15 @@ public class FootstepScript : MonoBehaviour
 
         if (isOnGround && Input.GetKeyDown(KeyCode.Space))
         {
-            feetAudioSource.PlayOneShot(jump, 0.5f);
+            feetAudioSource.PlayOneShot(jump, 0.2f);
         }
     }
 
+    // Footstep sound playing function
     private void PlayFootstepSound()
     {
         feetAudioSource.pitch = 1f + Random.Range(-0.2f, 0.2f);
-        feetAudioSource.PlayOneShot(footstep, 0.5f);
+        feetAudioSource.PlayOneShot(footstep, 0.2f);
         stepCooldown = stepRate;
     }
 

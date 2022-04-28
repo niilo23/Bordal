@@ -17,6 +17,8 @@ public class MouseLook : MonoBehaviour
         float mouseY  = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
 
         xRot += mouseY;
+        
+        // Prevents camera from spinning forever
         xRot = Mathf.Clamp(xRot, -90f, 90f);
 
         transform.localRotation = Quaternion.Euler(xRot, 0f, 0f);

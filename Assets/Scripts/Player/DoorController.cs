@@ -14,6 +14,7 @@ public class DoorController : MonoBehaviour
     {
         if(IsInTrigger == true && Input.GetKeyDown(KeyCode.E))
         {
+            // Trigger used in manual doors. Button doors are controlled thru button script
             animator.SetTrigger("OpenClose");
         }
     }

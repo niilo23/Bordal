@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PickupRotate : MonoBehaviour
 {
+    //INFO: Despite name being pickup, there is no objects to pick up in this game. Whole script only used for an inside joke.
+
     public float rotSpd = 0.43f;
     public float amplitude = 0.2f;
     public float frequency = 1f;
@@ -22,6 +24,7 @@ public class PickupRotate : MonoBehaviour
 
     void Update()
     {
+        // Moves object up and down
         tempPos = posOffset;
         tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * frequency) * amplitude;
 

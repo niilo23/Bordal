@@ -32,14 +32,14 @@ public class PickUp : MonoBehaviour
         { 
             PickedUp = true;
 
-            GetComponent<BoxCollider>().enabled = false;
+            //GetComponent<BoxCollider>().enabled = false;
             GetComponent<Rigidbody>().useGravity = false;
 
             rb = this.GetComponent<Rigidbody>();
             pickedUpObject = this.transform;
             pickedUpObject.transform.parent = GameObject.Find("PickupDestination").transform;
 
-            // Freeze rotation & constraints so objects don't spin while held and conserve velocity when dropped.
+            // Freeze rigidbody rotation & constraints so objects don't spin while held and conserve velocity when dropped.
             rb.freezeRotation = true;
             rb.constraints = RigidbodyConstraints.FreezeAll;
 
@@ -50,6 +50,8 @@ public class PickUp : MonoBehaviour
     // t‰m‰ palauttaa painovoiman, kun sit‰ ei en‰‰n pidet‰ k‰dess‰.
     private void OnMouseUp()
     {
+        // Reverses all steps above
+
         PickedUp = false;
         pickedUpObject.parent = boxParent;
         GetComponent<Rigidbody>().useGravity = true;

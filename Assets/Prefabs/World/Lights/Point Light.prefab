@@ -105,7 +105,7 @@ LensFlare:
   m_Enabled: 1
   m_Flare: {fileID: 12100000, guid: 5ef175bcd3e622e4eb5d0eace7951ff5, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_Brightness: 0.43
+  m_Brightness: 0.7425298
   m_FadeSpeed: 100
   m_IgnoreLayers:
     serializedVersion: 2

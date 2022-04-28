@@ -81,10 +81,10 @@ MonoBehaviour:
     Scene:
       sceneAsset: {fileID: 102900000, guid: 08b3b2e59b6ea414e8e1ddbc7ea94b6b, type: 3}
       scenePath: Assets/Scenes/MainMenu.unity
-  - LevelName: Game
+  - LevelName: GameLevel
     Scene:
-      sceneAsset: {fileID: 102900000, guid: 896830d269309ed4785161d37f56f4eb, type: 3}
-      scenePath: Assets/Scenes/Prototyping.unity
+      sceneAsset: {fileID: 102900000, guid: f69bb6b7bffcf0741bfc351151cf1392, type: 3}
+      scenePath: Assets/Scenes/GameLevel.unity
 --- !u!114 &4401588218906110009
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ public class LockCursor : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            if (Input.GetKeyDown(KeyCode.F1))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 cursorLocked = false;
             }

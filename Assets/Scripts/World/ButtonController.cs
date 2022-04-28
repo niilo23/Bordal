@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour
 {
-    private Animator buttonAnimator;
+    // Animation removed due to bugs
+    //FIX private Animator buttonAnimator;
     private Animator DoorAnimator;
 
     private float replayCooldown = 2.5f;
@@ -20,40 +21,42 @@ public class ButtonController : MonoBehaviour
 
     void Start()
     {
-        buttonAnimator = GetComponent<Animator>();
-        source = GetComponent<AudioSource>();
-        DoorAnimator = linkedDoor.GetComponent<Animator>();
-        doorSource = linkedDoor.GetComponent<AudioSource>();
+        //FIX buttonAnimator = GetComponent<Animator>();
+
+        // Gets all necessary components for sounds & animations.
+        source = this.GetComponent<AudioSource>();
+        DoorAnimator = this.linkedDoor.GetComponent<Animator>();
+        doorSource = this.linkedDoor.GetComponent<AudioSource>();
     }
 
-    // Timer so no earrape from buttonSound
+    // Timer so buttonSound doesn't play five million times a second
     void Update()
     {
         timer -= Time.deltaTime;
 
-        if (timer < 0) { timer = 0; }
+        if (timer < 0) {timer = 0; }
     }
 
     private void OnCollisionEnter(Collision other)
     {
+        // Movable is tag given to objects that are movable and are wanted to make the button work.
         if (other.gameObject.tag == "Movable")
         {
-            buttonAnimator.SetTrigger("ObjectOnButton");
-
-            DoorAnimator.SetTrigger("buttonOpen");
-            doorSource.PlayOneShot(linkedDoorSound, 0.5f);
-
+            //FIX this.buttonAnimator.SetTrigger("ObjectOnButton");
             if (timer <= 0)
             {
                 source.PlayOneShot(beep, 1.0f);
                 timer = replayCooldown;
             }
+
+            DoorAnimator.SetTrigger("buttonOpen");
+            doorSource.PlayOneShot(linkedDoorSound, 0.5f);
         }
     }
 
     private void OnCollisionExit()
     {
-        buttonAnimator.SetTrigger("ObjectNotOnButton");
+        //FIX buttonAnimator.SetTrigger("ObjectNotOnButton");
 
         DoorAnimator.SetTrigger("buttonClose");
         doorSource.PlayOneShot(linkedDoorSound, 0.5f); 

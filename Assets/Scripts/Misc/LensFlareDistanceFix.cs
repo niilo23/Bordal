@@ -28,10 +28,12 @@ public class LensFlareDistanceFix : MonoBehaviour
 
     void Update()
     {
+        // Changes flare brightness based on distance between player and flare
         float ratio = Mathf.Sqrt(Vector3.Distance(transform.position, Camera.main.transform.position));
         Flare.brightness = Size / ratio * BrightnessModifier;
         //Debug.Log("Flare brightness: " + Flare.brightness);
 
+        // Disables flare after a certain distance for optimization reasons
         if (Flare.brightness <= CutOff)
         {
             Flare.enabled = false;
